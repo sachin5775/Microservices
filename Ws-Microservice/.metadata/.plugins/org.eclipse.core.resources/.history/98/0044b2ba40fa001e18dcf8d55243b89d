@@ -1,0 +1,19 @@
+package com.user.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.user.entity.User;
+
+@Service
+public class UserServiceImpl implements UserService {
+	List<User> users = List.of(new User(234234L, "Sachin Patil", 6786834645645L),
+			new User(235345L, "Sujit Patil", 45647575L), new User(2534623L, "Divya Patil", 34543645745L));
+
+	@Override
+	public User getUser(Long id) {
+		return users.stream().filter(user -> user.getUserid().equals(id).findAny().orElse(null));
+	}
+
+}

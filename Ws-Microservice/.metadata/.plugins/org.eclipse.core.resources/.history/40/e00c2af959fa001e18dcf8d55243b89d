@@ -1,0 +1,22 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: gateway-server  
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: contact-service
+          uri: lb://contact-service
+          predicates:
+          - Path=/contact/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+          - Path=/user/**
+    
+eureka:
+  instance:
+    hostname: localhost
+    

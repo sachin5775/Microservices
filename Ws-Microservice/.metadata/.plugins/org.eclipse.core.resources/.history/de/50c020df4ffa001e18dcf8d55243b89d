@@ -1,0 +1,3 @@
+spring.application.name=Contact_service
+server.port=9091
+eureka.client.eureka-server-port=9092

@@ -1,0 +1,19 @@
+package com.user.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.user.entity.User;
+import com.user.services.UserService;
+
+@ResponseBody
+@RequestMapping("/user")
+public class UserController {
+	@Autowired
+	UserService userService;
+
+	public User getUser(Long uid) {
+		return userService.getUser(uid);
+	}
+}
